@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Page Content Copier",
+  "version": "1.0",
+  "description": "Copy entire webpage content with formatting using a single click or keyboard shortcut",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Copy Page Content"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "commands": {
+    "copy-page-content": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Ctrl+Shift+Y"
+      },
+      "description": "Copy page content to clipboard"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
